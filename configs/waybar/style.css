@@ -1,0 +1,82 @@
+@import "cs.css";
+
+* {
+  font-family: FiraCodeNerdFontMono;
+  font-size: 16px;
+  min-height: 0;
+  background-color: @surface0;
+}
+
+#waybar {
+  background: transparent;
+  color: @text;
+}
+
+#workspaces {
+  background-color: @surface0;
+}
+
+#workspaces button {
+  color: @lavender;
+  margin: 3px;
+}
+
+#workspaces button.active {
+  color: @sky;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+}
+
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#custom-notification,
+#pulseaudio,
+#custom-lock,
+#custom-power {
+  background-color: @surface0;
+  padding: 5px;
+}
+
+#clock {
+  color: @blue;
+  margin-right: 1rem;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+
+
+#pulseaudio {
+  color: @maroon;
+}
+
+#custom-music {
+  color: @mauve;
+}
+
+#custom-lock {
+    color: @lavender;
+}
+
+#custom-power {
+    color: @red;
+}
