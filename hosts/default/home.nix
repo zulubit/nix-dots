@@ -49,11 +49,9 @@
     ".config/rofi".source = ../../configs/rofi;
     ".config/swaylock".source = ../../configs/swaylock;
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    ".zshrc".text = ''
+      alias rebuild="sudo nixos-rebuild switch --flake ~/nixdots#default"
+    '';
   };
 
   # Home Manager can also manage your environment variables through
@@ -76,34 +74,34 @@
     EDITOR = "nvim";
   };
 
- gtk = {
-      enable = true;
-      font.name = "TeX Gyre Adventor 10";
-      theme = {
-        name = "Juno";
-        package = pkgs.juno-theme;
-      };
-      iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme;
-      };
-  cursorTheme = {
-    name = "Adwaita";
-    package = pkgs.adwaita-icon-theme; 
-  };
+  gtk = {
+    enable = true;
+    font.name = "TeX Gyre Adventor 10";
+    theme = {
+      name = "Juno";
+      package = pkgs.juno-theme;
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    cursorTheme = {
+      name = "Banana";
+      package = pkgs.banana-cursor;
+    };
 
-      gtk3.extraConfig = {
+    gtk3.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1
       '';
     };
 
-      gtk4.extraConfig = {
+    gtk4.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1
       '';
     };
-    
+
   };
 
   # Let Home Manager install and manage itself.

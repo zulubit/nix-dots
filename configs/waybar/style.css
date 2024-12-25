@@ -49,7 +49,7 @@ tooltip {
     background: rgba(0, 0, 0, 0.9);
     border-radius: 10px;
     border: 2px transparent;
-    border-image: linear-gradient(45deg, #FA8BFF, #2BD2FF) 1;
+    border-image: linear-gradient(45deg, rgb(239, 255, 99), #2BD2FF) 1;
     padding: 5px;
     box-shadow: 0 0 0 1px;
 }
@@ -94,7 +94,7 @@ tooltip label {
 #workspaces button:hover {
     background: black;
     border: 1px solid transparent;
-    border-image: linear-gradient(45deg, #FA8BFF, #2BD2FF) 1;
+    border-image: linear-gradient(45deg, rgb(239, 255, 99), #2BD2FF) 1;
     padding: 0 5px;
 }
 
@@ -107,13 +107,13 @@ tooltip label {
     background: black;
     border-bottom: 2px solid transparent;
     /* border-top: 2px solid transparent; */
-    border-image: linear-gradient(45deg, #FA8BFF, #2BD2FF) 1;
+    border-image: linear-gradient(45deg, rgb(239, 255, 99), #2BD2FF) 1;
     padding: 0 5px;
 }
 #taskbar button:hover {
     background: black;
     border: 1px solid transparent;
-    border-image: linear-gradient(45deg, #FA8BFF, #2BD2FF) 1;
+    border-image: linear-gradient(45deg, rgb(239, 255, 99), #2BD2FF) 1;
     padding: 0 5px;
 }
 
@@ -167,7 +167,7 @@ window#waybar.empty {
 #battery.charging,
 #battery.plugged {
     color: black;
-    background: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #FA8BFF 90%);
+    background: linear-gradient(45deg, rgb(239, 255, 99) 0%, #2BD2FF 52%, rgb(239, 255, 99) 90%);
 }
 
 @keyframes blink {
@@ -223,5 +223,5 @@ label:focus {
 #mpd,
 #mpris,
 #window {
-    background: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #FA8BFF 90%);
+    background: linear-gradient(45deg, rgb(239, 255, 99) 0%, #2BD2FF 52%, rgb(239, 255, 99) 90%);
 }

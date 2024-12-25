@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
     ];
@@ -22,7 +23,7 @@
   # Set your time zone.
   time.timeZone = "Europe/Ljubljana";
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -31,16 +32,16 @@
     withUWSM = true; # recommended for most users
     xwayland.enable = true; # Xwayland can be disabled.
   };
- hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-services.blueman.enable = true;
-services.power-profiles-daemon.enable = true;
+  services.blueman.enable = true;
+  services.power-profiles-daemon.enable = true;
   programs.zsh = {
     enable = true;
     ohMyZsh = {
       enable = true;
       plugins = [ "git" "z" ]; # Add desired plugins
-      theme = "agnoster";       # Set desired theme
+      theme = "agnoster"; # Set desired theme
     };
   };
   # Configure keymap in X11
@@ -54,10 +55,10 @@ services.power-profiles-daemon.enable = true;
     isNormalUser = true;
     description = "zulubit";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
-users.defaultUserShell=pkgs.zsh; 
+  users.defaultUserShell = pkgs.zsh;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -65,33 +66,37 @@ users.defaultUserShell=pkgs.zsh;
   # List packages installed in system profile# To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  wget
-  git
-  curl
-  firefox
-  rofi-wayland
-  kitty
-  neovim
-  wezterm
-  waybar
-  zsh
-  swaynotificationcenter
-  networkmanagerapplet
-  brightnessctl
-  hyprpaper
-  vscodium
-  yazi
-  gh
-  swaylock
-  wlogout
-  pavucontrol
-  power-profiles-daemon
-  dolphin
-  st
-  zellij
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    git
+    curl
+    hyprcursor
+    firefox
+    rofi-wayland
+    kitty
+    neovim
+    wezterm
+    waybar
+    zsh
+    nixpkgs-fmt
+    swaynotificationcenter
+    networkmanagerapplet
+    brightnessctl
+    hyprpaper
+    vscodium
+    yazi
+    gh
+    nodejs
+    swaylock
+    wlogout
+    pavucontrol
+    power-profiles-daemon
+    dolphin
+    st
+    zellij
+    vscode
   ];
-  
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -121,18 +126,14 @@ users.defaultUserShell=pkgs.zsh;
   system.stateVersion = "24.11"; # Did you read the comment?
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = { inherit inputs; };
     users = {
       "zulubit" = import ./home.nix;
     };
   };
 
-fonts.packages = with pkgs; [
-  nerd-fonts.fira-code
-  nerd-fonts.droid-sans-mono
-  nerd-fonts.fantasque-sans-mono
-];
-
-
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+  ];
 
 }
